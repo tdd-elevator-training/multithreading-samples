@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 // thanks https://richardbarabe.wordpress.com/2014/02/21/java-deadlock-livelock-and-lock-starvation-examples/
 public class Sample2_DeadLock_BankAccount {
 
@@ -47,16 +49,16 @@ public class Sample2_DeadLock_BankAccount {
         new Thread() {
             public void run() {
                 BankAccount.transfer(fooAccount, barAccount, 10d);
-                System.out.printf("Foo: %s, Bar: %s\n",
-                        fooAccount.balance, barAccount.balance);
+                print(String.format("Foo: %s, Bar: %s\n",
+                        fooAccount.balance, barAccount.balance));
             }
         }.start();
 
         new Thread() {
             public void run() {
                 BankAccount.transfer(barAccount, fooAccount, 10d);
-                System.out.printf("Foo: %s, Bar: %s\n",
-                      fooAccount.balance, barAccount.balance);
+                print(String.format("Foo: %s, Bar: %s\n",
+                        fooAccount.balance, barAccount.balance));
             }
         }.start();
 

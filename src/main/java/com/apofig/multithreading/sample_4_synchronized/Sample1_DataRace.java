@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample1_DataRace {
 
     //    private static Object monitor = new Object();
@@ -8,21 +10,17 @@ public class Sample1_DataRace {
     static class MyRunnable implements Runnable {
         public void run() {
 //            synchronized (monitor) {
-            print("зашли: " + count);
+            print("Enter: " + count);
 
             int y = count;
 
-            print("прочитали: " + y);
+            print("Read: " + y);
 
             count = y + 1;
 
-            print("просуммировали: " + count);
+            print("Sum: " + count);
 //            }
         }
-    }
-
-    private static void print(String message) {
-        System.out.println(Thread.currentThread().getId() + ": " + message);
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -36,7 +34,7 @@ public class Sample1_DataRace {
         thread1.join();
         thread2.join();
 
-        print("итого: " + count);
+        print("Total: " + count);
     }
 
 }

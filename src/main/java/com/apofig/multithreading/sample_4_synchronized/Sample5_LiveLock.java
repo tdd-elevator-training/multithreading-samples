@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 // thanks http://stackoverflow.com/a/8863671
 public class Sample5_LiveLock {
 
@@ -19,7 +21,7 @@ public class Sample5_LiveLock {
         }
 
         public synchronized void use() {
-            System.out.printf("%s has eaten!", owner.name);
+            print(String.format("%s has eaten!", owner.name));
         }
     }
 
@@ -54,7 +56,8 @@ public class Sample5_LiveLock {
 
                 // If spouse is hungry, insist upon passing the spoon.
                 if (spouse.isHungry()) {
-                    System.out.printf("%s: You eat first my darling %s!%n", name, spouse.getName());
+                    print(String.format("%s: You eat first my darling %s!%n",
+                            name, spouse.getName()));
                     spoon.setOwner(spouse);
                     continue;
                 }
@@ -62,7 +65,8 @@ public class Sample5_LiveLock {
                 // Spouse wasn't hungry, so finally eat
                 spoon.use();
                 isHungry = false;
-                System.out.printf("%s: I am stuffed, my darling %s!%n", name, spouse.getName());
+                print(String.format("%s: I am stuffed, my darling %s!%n",
+                        name, spouse.getName()));
                 spoon.setOwner(spouse);
             }
         }

@@ -1,12 +1,14 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample6_ExceptionInThread {
 
     static class ExceptionListener implements Thread.UncaughtExceptionHandler {
 
         @Override
         public void uncaughtException(Thread t, Throwable e) {
-            System.out.println("Упал поток: " + t.getName() +
+            print("Упал поток: " + t.getName() +
                     " с исключением: " + e);
         }
     }
@@ -25,7 +27,7 @@ public class Sample6_ExceptionInThread {
 
         Thread.sleep(100);
 
-        System.out.println("Пока!");
+        print("Пока!");
     }
 
 }

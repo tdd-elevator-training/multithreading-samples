@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample1_DataRaceVolatile {
 
     private static volatile int number = 0; // shared state
@@ -18,7 +20,7 @@ public class Sample1_DataRaceVolatile {
             public void run() {
                 while (true) {
                     if (number % 2 == 0) {
-                        System.out.println(number);
+                        print(String.valueOf(number));
                     }
 
                     try {

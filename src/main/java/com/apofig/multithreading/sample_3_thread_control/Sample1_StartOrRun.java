@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample1_StartOrRun {
 
     public static void main(String[] args) throws InterruptedException {
@@ -8,7 +10,7 @@ public class Sample1_StartOrRun {
             public void run() {
                 int count = 10;
                 while (--count > 0) {
-                    System.out.println("Thread1");
+                    print("Thread1");
 
                     try {
                         Thread.sleep(10);
@@ -24,7 +26,7 @@ public class Sample1_StartOrRun {
             public void run() {
                 int count = 10;
                 while (--count > 0) {
-                    System.out.println("Thread2");
+                    print("Thread2");
 
                     try {
                         Thread.sleep(10);
@@ -36,17 +38,17 @@ public class Sample1_StartOrRun {
         });
 
 
-        System.out.println("Running 1");
+        print("Running 1");
 
 //        thread1.run();
         thread1.start();
 
-        System.out.println("Running 2");
+        print("Running 2");
 
 //        thread2.run();
         thread2.start();
 
-        System.out.println("Finish");
+        print("Finish");
     }
 
 }

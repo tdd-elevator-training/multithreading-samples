@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample2_DeadLock {
 
     public static void main(String[] args) throws InterruptedException {
@@ -17,7 +19,7 @@ public class Sample2_DeadLock {
                     }
 
                     synchronized (object2) {
-                        System.out.println("Done1!");
+                        print("Done1!");
                     }
                 }
             }
@@ -33,7 +35,7 @@ public class Sample2_DeadLock {
                     }
 
                     synchronized (object1) {
-                        System.out.println("Done2!");
+                        print("Done2!");
                     }
                 }
             }

@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample8_InterruptIsInterrupted {
 
     static class MyRunnable implements Runnable {
@@ -13,7 +15,7 @@ public class Sample8_InterruptIsInterrupted {
         @Override
         public void run() {
             while (!Thread.interrupted()) {
-                System.out.println(message);
+                print(message);
 
                 try {
                     Thread.sleep(1000);
@@ -21,7 +23,7 @@ public class Sample8_InterruptIsInterrupted {
                     Thread.currentThread().interrupt();
                 }
             }
-            System.out.println("Exit");
+            print("Exit");
         }
     }
 
@@ -37,7 +39,7 @@ public class Sample8_InterruptIsInterrupted {
         thread1.interrupt();
         thread2.interrupt();
 
-        System.out.println("Exit main");
+        print("Exit main");
     }
 
 }

@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample4_DeadLock_SynchronizedWithPrimitive {
 
     //    private static String monitor = "12";
@@ -31,10 +33,6 @@ public class Sample4_DeadLock_SynchronizedWithPrimitive {
                 }
             }
         }
-    }
-
-    private static void print(String message) {
-        System.out.println(Thread.currentThread().getId() + ": " + message);
     }
 
     public static void main(String[] args) throws InterruptedException {

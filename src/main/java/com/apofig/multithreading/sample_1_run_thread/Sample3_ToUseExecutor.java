@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample3_ToUseExecutor {
 
     static class IAmTheBest implements Runnable {
@@ -16,9 +18,8 @@ public class Sample3_ToUseExecutor {
 
         @Override
         public void run() {
-            long id = Thread.currentThread().getId();
             while (true) {
-                System.out.println(id + ": " + message);
+                print(message);
 
                 try {
                     Thread.sleep(new Random().nextInt(2000));
@@ -41,7 +42,7 @@ public class Sample3_ToUseExecutor {
         executor.execute(task2);
         executor.execute(task3);
 
-        System.out.println("Пока!!");
+        print("Пока!!");
     }
 
 }

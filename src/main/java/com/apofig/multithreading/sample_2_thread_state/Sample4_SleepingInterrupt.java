@@ -2,6 +2,8 @@ package com.apofig.multithreading.sample_2_thread_state;
 
 import java.util.Calendar;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample4_SleepingInterrupt {
 
     public static void main(String[] args) {
@@ -9,19 +11,16 @@ public class Sample4_SleepingInterrupt {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println();
-                    System.out.println("Running<->Runnable");
-
-                    System.out.println("Sleeping");
+                    print("Sleeping");
                     long time = now();
                     try {
 
                         Thread.sleep(10000);
 
                     } catch (InterruptedException e) {
-                        System.out.println("Sleep interrupted: " + (now() - time) + "ms");
+                        print("Sleep interrupted: " + (now() - time) + "ms");
                     }
-                    System.out.println("Running");
+                    print("Running");
                 }
             }
         });
@@ -30,7 +29,7 @@ public class Sample4_SleepingInterrupt {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("Try to interrupt..");
+                    print("Try to interrupt..");
 
                     thread.interrupt();
 

@@ -1,42 +1,50 @@
 package com.apofig.multithreading.sample_2_thread_state;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
+/**
+ * Показать как ждет один другого
+ * Заремерить while(true) в обоих потоках и показать, что в части случаев один поток зависает в ожидании уже готовых данных
+ * Исправить ошибку добавлением if (!ready)
+ * Сообщить о Spurious wakeups и взять в while (!ready)
+ */
 public class Sample5_WaitingNotify {
+    static Object monitor = new Object();
+//    static boolean ready = false;
 
     public static void main(String[] args) {
-        final Object monitor = new Object();
 
         final Thread main = new Thread(new Runnable() {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("Running<->Runnable");
-
-                    System.out.println("Waiting");
-
                     synchronized (monitor) {
                         try {
-                            monitor.wait();
-                            System.out.println("After wait");
+                            print("Waiting...");
+//                            if (!ready) {
+                                monitor.wait();
+//                            }
+                            print("Wakeup");
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
 
-                    System.out.println("Running");
+                    print("----------Running----------");
                 }
             }
         });
 
-        Thread alarmer = new Thread(new Runnable() {
+        Thread notifier = new Thread(new Runnable() {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println();
-                    System.out.println("Try to notify..");
+                    print("Try to notify...");
 
                     synchronized (monitor) {
+//                        ready = true;
                         monitor.notify();
-                        System.out.println("After notify");
+                        print("After notify");
                     }
 
                     try {
@@ -49,7 +57,7 @@ public class Sample5_WaitingNotify {
         });
 
         main.start();
-        alarmer.start();
+        notifier.start();
     }
 
 }

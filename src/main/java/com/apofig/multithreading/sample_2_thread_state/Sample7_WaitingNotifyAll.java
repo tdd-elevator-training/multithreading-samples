@@ -2,7 +2,7 @@ package com.apofig.multithreading.sample_2_thread_state;
 
 import static com.apofig.multithreading.ThreadUtils.print;
 
-public class Sample6_WaitingNotifyWithThreeWait {
+public class Sample7_WaitingNotifyAll {
 
     static Object monitor = new Object();
     static boolean ready = false;
@@ -11,17 +11,23 @@ public class Sample6_WaitingNotifyWithThreeWait {
         @Override
         public void run() {
             while (true) {
-
                 synchronized (monitor) {
                     try {
                         while (!ready) {
+                            print("Waiting... ");
                             monitor.wait();
                             print("Wakeup");
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    ready = false;
+                }
+                print("Do my work");
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -38,13 +44,33 @@ public class Sample6_WaitingNotifyWithThreeWait {
             public void run() {
                 while (true) {
                     synchronized (monitor) {
-                        print("Notify...");
                         ready = true;
-                        monitor.notify();
+                        print("ready = true");
+                        print("Try to notify all...");
+                        monitor.notifyAll();
+                        print("After notify ");
                     }
 
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        Thread releaser = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    synchronized (monitor) {
+                        ready = false;
+                        print("ready = false");
+                    }
+
+                    try {
+                        Thread.sleep(3000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -56,6 +82,7 @@ public class Sample6_WaitingNotifyWithThreeWait {
         main2.start();
         main3.start();
         notifier.start();
+        releaser.start();
     }
 
 }

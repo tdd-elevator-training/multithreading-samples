@@ -2,6 +2,8 @@ package com.apofig.multithreading.sample_2_thread_state;
 
 import java.util.Calendar;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample3_SleepingEndTimer {
 
     public static void main(String[] args) {
@@ -9,15 +11,13 @@ public class Sample3_SleepingEndTimer {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("Running<->Runnable");
-
                     try {
-                        System.out.println("Before sleep");
+                        print("Before sleep");
                         long time = now();
 
                         Thread.sleep(1000);
 
-                        System.out.println("After sleep: " + (now() - time) + "ms");
+                        print("After sleep: " + (now() - time) + "ms");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

@@ -6,6 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample4_ToUseExecutorWithCallable {
 
     static class IAmTheBest implements Callable {
@@ -20,9 +22,8 @@ public class Sample4_ToUseExecutorWithCallable {
 
         @Override
         public Object call() throws Exception {
-            long id = Thread.currentThread().getId();
             for (int i = 0; i < count; i++) {
-                System.out.println(id + ": " + message);
+                print(message);
 
                 try {
                     Thread.sleep(new Random().nextInt(2000));
@@ -42,7 +43,7 @@ public class Sample4_ToUseExecutorWithCallable {
         Future future1 = executor.submit(task1);
         Future future2 = executor.submit(task2);
 
-        System.out.println("Я круче! vs Нет Я!\n" +
+        print("Я круче! vs Нет Я!\n" +
                 future1.get() + ":" + future2.get());
 
         executor.shutdown();

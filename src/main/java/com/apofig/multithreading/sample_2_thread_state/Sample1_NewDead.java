@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_2_thread_state;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample1_NewDead {
 
     private static void someLogic(int b) {
@@ -15,24 +17,24 @@ public class Sample1_NewDead {
             public void run() {
                 int count = 10;
                 while (--count > 0) {
-                    System.out.println("Running<->Runnable");
+                    print("Running<->Runnable");
 
 
                     someLogic(1000000);
                 }
-                System.out.println("Almost Dead");
+                print("Almost Dead");
             }
         });
 
-        System.out.println("New");
+        print("New");
 
         thread.start();
 
-        System.out.println("Runnable");
+        print("Runnable");
 
         thread.join();
 
-        System.out.println("Dead");
+        print("Dead");
     }
 
 }

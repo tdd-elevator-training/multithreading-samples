@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample3_SetPriority {
 
     private static void someLogic(int b) {
@@ -14,7 +16,7 @@ public class Sample3_SetPriority {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("Я круче!");
+                    print("Я круче!");
 
                     someLogic(1000000);
                 }
@@ -25,7 +27,7 @@ public class Sample3_SetPriority {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("Нет я!");
+                    print("Нет я!");
 
                     someLogic(1000000);
                 }

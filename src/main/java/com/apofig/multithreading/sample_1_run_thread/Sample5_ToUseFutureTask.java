@@ -3,14 +3,15 @@ package com.apofig.multithreading.sample_1_run_thread;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample5_ToUseFutureTask {
 
     static class MyCallable implements Callable {
-
         @Override
         public Object call() {
             while (true) {
-                System.out.println("Я тут!");
+                print("Я тут!");
 
                 try {
                     Thread.sleep(500);
@@ -22,14 +23,11 @@ public class Sample5_ToUseFutureTask {
         }
     }
 
-    ;
-
     static class MyRunnable implements Runnable {
-
         @Override
         public void run() {
             while (true) {
-                System.out.println("А я тут!");
+                print("А я тут!");
 
                 try {
                     Thread.sleep(500);

@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample7_Daemons {
 
     static class MyRunnable implements Runnable {
@@ -15,7 +17,7 @@ public class Sample7_Daemons {
         @Override
         public void run() {
             while (--count > 0) {
-                System.out.println(message);
+                print("Work " + message);
 
                 try {
                     Thread.sleep(1000);
@@ -23,7 +25,7 @@ public class Sample7_Daemons {
                     e.printStackTrace();
                 }
             }
-            System.out.println("Exit");
+            print("Exit");
         }
     }
 
@@ -43,7 +45,7 @@ public class Sample7_Daemons {
         daemon1.start();
         daemon2.start();
 
-        System.out.println("Exit main");
+        print("Exit main");
     }
 
 }

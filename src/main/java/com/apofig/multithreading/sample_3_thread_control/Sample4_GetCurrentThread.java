@@ -1,12 +1,14 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample4_GetCurrentThread {
 
     static class MyRunnable implements Runnable {
         @Override
         public void run() {
             Thread thread = Thread.currentThread();
-            System.out.println(thread.getName());
+            print(thread.getName());
         }
     }
 
@@ -15,7 +17,7 @@ public class Sample4_GetCurrentThread {
         Thread thread2 = new Thread(new MyRunnable());
 
         Thread main = Thread.currentThread();
-        System.out.println(main.getName());
+        print(main.getName());
         thread1.start();
         thread2.start();
     }

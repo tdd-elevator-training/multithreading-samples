@@ -2,6 +2,8 @@ package com.apofig.multithreading.sample_1_run_thread;
 
 import java.util.Random;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample1_OverrideThreadRunMethod {
 
     static class MyThread extends Thread {
@@ -15,7 +17,7 @@ public class Sample1_OverrideThreadRunMethod {
         @Override
         public void run() {
             while (true) {
-                System.out.println(message);
+                print(message);
 
                 try {
                     Thread.sleep(new Random().nextInt(2000));

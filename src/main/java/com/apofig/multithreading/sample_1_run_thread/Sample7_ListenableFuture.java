@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 // Рекомендую использовать
 // https://code.google.com/p/guava-libraries/wiki/ListenableFutureExplained
 // Этот класс написан в демо целях
@@ -14,10 +16,9 @@ public class Sample7_ListenableFuture {
 
         @Override
         public Object call() {
-            long id = Thread.currentThread().getId();
             int count = new Random().nextInt(10);
             while (--count > 0) {
-                System.out.println(id + ": Я тут!");
+                print("Я тут!");
 
                 try {
                     Thread.sleep(500);
@@ -25,7 +26,7 @@ public class Sample7_ListenableFuture {
                     e.printStackTrace();
                 }
             }
-            return id;
+            return Thread.currentThread().getId();
         }
     }
 
@@ -147,7 +148,7 @@ public class Sample7_ListenableFuture {
         listener.onComplete(new Completable() {
             @Override
             public void complete(Object object) {
-                System.out.println("Finished: " + object);
+                print("Finished: " + object);
 
                 remainingFutures[0]--;
                 if (remainingFutures[0] == 0) {

@@ -2,15 +2,15 @@ package com.apofig.multithreading.sample_2_thread_state;
 
 import java.io.*;
 
-public class Sample7_Blocked {
+import static com.apofig.multithreading.ThreadUtils.print;
+
+public class Sample8_Blocked {
 
     static class MyRunnable implements Runnable {
         @Override
         public void run() {
             while (true) {
-                System.out.println("Running<->Runnable");
-
-                System.out.println("Blocked");
+                print("Blocked");
 
                 try (OutputStream os = new FileOutputStream(new File("1.txt"))) {
                     os.write(new byte[1000000000]);
@@ -20,7 +20,7 @@ public class Sample7_Blocked {
                     e.printStackTrace();
                 }
 
-                System.out.println("Running");
+                print("Running");
             }
         }
     }
@@ -33,7 +33,7 @@ public class Sample7_Blocked {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("Try to interrupt...");
+                    print("Try to interrupt...");
 
                     main.interrupt();
 

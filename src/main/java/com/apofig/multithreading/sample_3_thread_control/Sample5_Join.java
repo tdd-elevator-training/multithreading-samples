@@ -1,5 +1,7 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
+import static com.apofig.multithreading.ThreadUtils.print;
+
 public class Sample5_Join {
 
     static class MyRunnable implements Runnable {
@@ -13,7 +15,7 @@ public class Sample5_Join {
         @Override
         public void run() {
             while (--count > 0) {
-                System.out.println(Thread.currentThread().getName() + ": " + count);
+                print(String.valueOf(count));
             }
         }
     }
@@ -27,10 +29,10 @@ public class Sample5_Join {
         thread2.start();
 
         thread2.join();
-        System.out.println(Thread.currentThread().getName() + ": Thread 2 finished");
+        print("Thread 2 finished");
 
         thread1.join();
-        System.out.println(Thread.currentThread().getName() + ": Thread 1 finished");
+        print("Thread 1 finished");
     }
 
 }
