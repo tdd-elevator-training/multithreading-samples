@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample1_StartOrRun {
 
@@ -12,11 +13,7 @@ public class Sample1_StartOrRun {
                 while (--count > 0) {
                     print("Thread1");
 
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(10);
                 }
             }
         });
@@ -28,11 +25,7 @@ public class Sample1_StartOrRun {
                 while (--count > 0) {
                     print("Thread2");
 
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(10);
                 }
             }
         });

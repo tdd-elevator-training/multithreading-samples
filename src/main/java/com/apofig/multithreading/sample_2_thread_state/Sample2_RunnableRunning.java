@@ -1,13 +1,8 @@
 package com.apofig.multithreading.sample_2_thread_state;
 
-public class Sample2_RunnableRunning {
+import static com.apofig.multithreading.ThreadUtils.someLogic;
 
-    private static void someLogic(int b) {
-        double a = 13.0;
-        for (int i = 0; i < b; i++) {
-            a = Math.cos(Math.sqrt(a + Math.sin(a)));
-        }
-    }
+public class Sample2_RunnableRunning {
 
     public static void main(String[] args) {
         Thread thread1 = new Thread(new Runnable() {
@@ -15,7 +10,7 @@ public class Sample2_RunnableRunning {
             public void run() {
                 while (true) {
                     System.out.print("+");
-                    someLogic(1000000);
+                    someLogic(1_000_000);
                 }
             }
         });
@@ -25,7 +20,7 @@ public class Sample2_RunnableRunning {
             public void run() {
                 while (true) {
                     System.out.println("");
-                    someLogic(10000000);
+                    someLogic(10_000_000);
                 }
             }
         });

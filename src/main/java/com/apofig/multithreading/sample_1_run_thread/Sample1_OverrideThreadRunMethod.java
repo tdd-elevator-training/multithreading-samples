@@ -1,8 +1,7 @@
 package com.apofig.multithreading.sample_1_run_thread;
 
-import java.util.Random;
-
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleepRandom;
 
 public class Sample1_OverrideThreadRunMethod {
 
@@ -19,16 +18,10 @@ public class Sample1_OverrideThreadRunMethod {
             while (true) {
                 print(message);
 
-                try {
-                    Thread.sleep(new Random().nextInt(2000));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                sleepRandom(2000);
             }
         }
     }
-
-    ;
 
     public static void main(String[] args) {
         Thread thread1 = new MyThread("Я круче!");
@@ -37,5 +30,4 @@ public class Sample1_OverrideThreadRunMethod {
         thread1.start();
         thread2.start();
     }
-
 }

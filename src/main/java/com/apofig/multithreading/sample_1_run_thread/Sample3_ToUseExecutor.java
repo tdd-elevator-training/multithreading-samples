@@ -5,6 +5,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleepRandom;
 
 public class Sample3_ToUseExecutor {
 
@@ -21,11 +22,7 @@ public class Sample3_ToUseExecutor {
             while (true) {
                 print(message);
 
-                try {
-                    Thread.sleep(new Random().nextInt(2000));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+               sleepRandom(2000);
             }
         }
     }

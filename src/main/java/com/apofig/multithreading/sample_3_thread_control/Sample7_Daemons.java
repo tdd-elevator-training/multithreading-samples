@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample7_Daemons {
 
@@ -19,11 +20,7 @@ public class Sample7_Daemons {
             while (--count > 0) {
                 print("Work " + message);
 
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                sleep(1000);
             }
             print("Exit");
         }

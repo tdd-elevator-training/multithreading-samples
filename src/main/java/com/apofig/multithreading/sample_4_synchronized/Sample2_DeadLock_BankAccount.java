@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 // thanks https://richardbarabe.wordpress.com/2014/02/21/java-deadlock-livelock-and-lock-starvation-examples/
 public class Sample2_DeadLock_BankAccount {
@@ -16,19 +17,13 @@ public class Sample2_DeadLock_BankAccount {
 
         public void withdraw(double amount) {
             // Wait to simulate io like database access ...
-            try {
-                Thread.sleep(10l);
-            } catch (InterruptedException e) {
-            }
+            sleep(100);
             balance -= amount;
         }
 
         public void deposit(double amount) {
             // Wait to simulate io like database access ...
-            try {
-                Thread.sleep(10l);
-            } catch (InterruptedException e) {
-            }
+            sleep(100);
             balance += amount;
         }
 

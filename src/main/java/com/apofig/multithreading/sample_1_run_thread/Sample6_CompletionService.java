@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.concurrent.*;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
+import static com.apofig.multithreading.ThreadUtils.sleepRandom;
 
 // thanks http://blog.teamlazerbeez.com/2009/04/29/java-completionservice/
 public class Sample6_CompletionService {
@@ -16,11 +18,7 @@ public class Sample6_CompletionService {
             while (--count > 0) {
                 print("Я тут!");
 
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                sleep(500);
             }
             return Thread.currentThread().getId();
         }

@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleepRandom;
 
 public class Sample4_ToUseExecutorWithCallable {
 
@@ -25,11 +26,7 @@ public class Sample4_ToUseExecutorWithCallable {
             for (int i = 0; i < count; i++) {
                 print(message);
 
-                try {
-                    Thread.sleep(new Random().nextInt(2000));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+               sleepRandom(2000);
             }
             return count;
         }

@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample2_DeadLock {
 
@@ -12,11 +13,7 @@ public class Sample2_DeadLock {
             @Override
             public void run() {
                 synchronized (object1) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(100);
 
                     synchronized (object2) {
                         print("Done1!");
@@ -28,11 +25,7 @@ public class Sample2_DeadLock {
             @Override
             public void run() {
                 synchronized (object2) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(100);
 
                     synchronized (object1) {
                         print("Done2!");

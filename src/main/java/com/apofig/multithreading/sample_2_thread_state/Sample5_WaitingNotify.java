@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_2_thread_state;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 /**
  * Показать как ждет один другого
@@ -22,7 +23,7 @@ public class Sample5_WaitingNotify {
                         try {
                             print("Waiting...");
 //                            if (!ready) {
-                                monitor.wait();
+                            monitor.wait();
 //                            }
                             print("Wakeup");
                         } catch (InterruptedException e) {
@@ -47,11 +48,7 @@ public class Sample5_WaitingNotify {
                         print("After notify");
                     }
 
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(1000);
                 }
             }
         });

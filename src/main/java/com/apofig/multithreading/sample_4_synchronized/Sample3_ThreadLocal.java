@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 // thanks http://samolisov.blogspot.com/2011/04/threadlocal.html
 public class Sample3_ThreadLocal {
@@ -24,11 +25,7 @@ public class Sample3_ThreadLocal {
 
                 print(shared.get());
 
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                sleep(1000);
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample1_DataRaceVolatile {
 
@@ -23,11 +24,7 @@ public class Sample1_DataRaceVolatile {
                         print(String.valueOf(number));
                     }
 
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(1000);
                 }
             }
         });

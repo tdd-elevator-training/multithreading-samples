@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 // thanks http://stackoverflow.com/a/8863671
 public class Sample5_LiveLock {
@@ -46,11 +47,7 @@ public class Sample5_LiveLock {
             while (isHungry) {
                 // Don't have the spoon, so wait patiently for spouse.
                 if (spoon.owner != this) {
-                    try {
-                        Thread.sleep(1);
-                    } catch (InterruptedException e) {
-                        continue;
-                    }
+                    sleep(1);
                     continue;
                 }
 

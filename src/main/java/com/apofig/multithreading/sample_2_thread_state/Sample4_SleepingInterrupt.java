@@ -3,6 +3,7 @@ package com.apofig.multithreading.sample_2_thread_state;
 import java.util.Calendar;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample4_SleepingInterrupt {
 
@@ -33,11 +34,7 @@ public class Sample4_SleepingInterrupt {
 
                     thread.interrupt();
 
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(1000);
                 }
             }
         });

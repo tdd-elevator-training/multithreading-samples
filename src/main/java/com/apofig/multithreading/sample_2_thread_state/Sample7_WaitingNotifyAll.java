@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_2_thread_state;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample7_WaitingNotifyAll {
 
@@ -24,11 +25,7 @@ public class Sample7_WaitingNotifyAll {
                 }
                 print("Do my work");
 
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                sleep(1000);
             }
         }
     }
@@ -51,11 +48,7 @@ public class Sample7_WaitingNotifyAll {
                         print("After notify ");
                     }
 
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(3000);
                 }
             }
         });
@@ -69,11 +62,7 @@ public class Sample7_WaitingNotifyAll {
                         print("ready = false");
                     }
 
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(3000);
                 }
             }
         });

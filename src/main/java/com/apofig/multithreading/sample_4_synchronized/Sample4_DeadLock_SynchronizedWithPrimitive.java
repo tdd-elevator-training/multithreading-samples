@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_4_synchronized;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample4_DeadLock_SynchronizedWithPrimitive {
 
@@ -26,11 +27,7 @@ public class Sample4_DeadLock_SynchronizedWithPrimitive {
                     print("просуммировали: " + count);
                 }
 
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                sleep(10);
             }
         }
     }

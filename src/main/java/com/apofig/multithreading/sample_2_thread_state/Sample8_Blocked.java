@@ -3,6 +3,7 @@ package com.apofig.multithreading.sample_2_thread_state;
 import java.io.*;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample8_Blocked {
 
@@ -37,11 +38,7 @@ public class Sample8_Blocked {
 
                     main.interrupt();
 
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(100);
                 }
             }
         });

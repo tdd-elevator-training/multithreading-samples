@@ -1,6 +1,7 @@
 package com.apofig.multithreading.sample_2_thread_state;
 
 import static com.apofig.multithreading.ThreadUtils.print;
+import static com.apofig.multithreading.ThreadUtils.sleep;
 
 public class Sample6_WaitingNotifyWithThreeWait {
 
@@ -43,11 +44,7 @@ public class Sample6_WaitingNotifyWithThreeWait {
                         monitor.notify();
                     }
 
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    sleep(1000);
                 }
             }
         });

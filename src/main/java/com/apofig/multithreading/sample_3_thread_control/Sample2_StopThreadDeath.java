@@ -8,7 +8,7 @@ public class Sample2_StopThreadDeath {
                 try {
                     Thread.sleep(2500);
                 } catch (Throwable ex) {
-                   ex.printStackTrace();
+                    ex.printStackTrace();
                 }
             }
         };
