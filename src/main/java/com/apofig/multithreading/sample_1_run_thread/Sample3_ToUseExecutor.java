@@ -16,8 +16,9 @@ public class Sample3_ToUseExecutor {
 
         @Override
         public void run() {
+            long id = Thread.currentThread().getId();
             while (true) {
-                System.out.println(Thread.currentThread().getId() + ": " + message);
+                System.out.println(id + ": " + message);
 
                 try {
                     Thread.sleep(new Random().nextInt(2000));

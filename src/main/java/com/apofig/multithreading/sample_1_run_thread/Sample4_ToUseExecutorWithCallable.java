@@ -17,8 +17,9 @@ public class Sample4_ToUseExecutorWithCallable {
 
         @Override
         public Object call() throws Exception {
+            long id = Thread.currentThread().getId();
             for (int i = 0; i < count; i++) {
-                System.out.println(Thread.currentThread().getId() + ": " + message);
+                System.out.println(id + ": " + message);
 
                 try {
                     Thread.sleep(new Random().nextInt(2000));
@@ -40,6 +41,8 @@ public class Sample4_ToUseExecutorWithCallable {
 
         System.out.println("Я круче! vs Нет Я!\n" +
                 future1.get() + ":" + future2.get());
+
+        executor.shutdown();
     }
 
 }
