@@ -68,7 +68,7 @@ public class Sample5_LiveLock {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         final Diner husband = new Diner("Bob");
         final Diner wife = new Diner("Alice");
 
@@ -79,6 +79,7 @@ public class Sample5_LiveLock {
                 husband.eatWith(s, wife);
             }
         }).start();
+
         new Thread(new Runnable() {
             public void run() {
                 wife.eatWith(s, husband);
