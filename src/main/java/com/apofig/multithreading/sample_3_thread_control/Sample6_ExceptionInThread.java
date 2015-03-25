@@ -1,8 +1,5 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class Sample6_ExceptionInThread {
 
     static class ExceptionListener implements Thread.UncaughtExceptionHandler {

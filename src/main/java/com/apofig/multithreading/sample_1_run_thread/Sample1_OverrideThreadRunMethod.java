@@ -24,7 +24,9 @@ public class Sample1_OverrideThreadRunMethod {
                 }
             }
         }
-    };
+    }
+
+    ;
 
     public static void main(String[] args) {
         Thread thread1 = new MyThread("Я круче!");

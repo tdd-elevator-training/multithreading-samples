@@ -2,7 +2,7 @@ package com.apofig.multithreading.sample_4_synchronized;
 
 public class Sample4_DeadLock_SynchronizedWithPrimitive {
 
-//    private static String monitor = "12";
+    //    private static String monitor = "12";
     private static Integer monitor = 12;
 //    private static Boolean monitor = true;
 

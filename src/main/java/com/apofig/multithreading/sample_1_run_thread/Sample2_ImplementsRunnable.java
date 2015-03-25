@@ -24,7 +24,9 @@ public class Sample2_ImplementsRunnable {
                 }
             }
         }
-    };
+    }
+
+    ;
 
     public static void main(String[] args) {
         Runnable task1 = new IAmTheBest("Я круче!");

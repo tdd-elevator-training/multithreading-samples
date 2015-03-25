@@ -1,6 +1,6 @@
 package com.apofig.multithreading.sample_2_thread_state;
 
-public class Sample7_WaitingNotifyAll {
+public class Sample8_WaitingNotifyAll {
 
     static Object monitor = new Object();
 

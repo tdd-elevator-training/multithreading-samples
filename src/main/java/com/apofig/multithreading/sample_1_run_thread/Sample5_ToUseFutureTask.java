@@ -20,7 +20,9 @@ public class Sample5_ToUseFutureTask {
             }
             return null;
         }
-    };
+    }
+
+    ;
 
     static class MyRunnable implements Runnable {
 
@@ -36,7 +38,9 @@ public class Sample5_ToUseFutureTask {
                 }
             }
         }
-    };
+    }
+
+    ;
 
     public static void main(String[] args) throws Exception {
         FutureTask task1 = new FutureTask(new MyCallable());

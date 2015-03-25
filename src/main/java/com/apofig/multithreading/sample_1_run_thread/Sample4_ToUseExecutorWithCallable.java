@@ -1,7 +1,10 @@
 package com.apofig.multithreading.sample_1_run_thread;
 
 import java.util.Random;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Sample4_ToUseExecutorWithCallable {
 
@@ -29,7 +32,9 @@ public class Sample4_ToUseExecutorWithCallable {
             }
             return count;
         }
-    };
+    }
+
+    ;
 
     public static void main(String[] args) throws Exception {
         Callable task1 = new IAmTheBest("Я круче!");

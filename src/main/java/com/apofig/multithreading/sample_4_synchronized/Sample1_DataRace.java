@@ -2,21 +2,21 @@ package com.apofig.multithreading.sample_4_synchronized;
 
 public class Sample1_DataRace {
 
-//    private static Object monitor = new Object();
+    //    private static Object monitor = new Object();
     private static int count = 0; // shared state
 
     static class MyRunnable implements Runnable {
         public void run() {
 //            synchronized (monitor) {
-                print("зашли: " + count);
+            print("зашли: " + count);
 
-                int y = count;
+            int y = count;
 
-                print("прочитали: " + y);
+            print("прочитали: " + y);
 
-                count = y + 1;
+            count = y + 1;
 
-                print("просуммировали: " + count);
+            print("просуммировали: " + count);
 //            }
         }
     }

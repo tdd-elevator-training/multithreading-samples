@@ -23,7 +23,9 @@ public class Sample6_CompletionService {
             }
             return id;
         }
-    };
+    }
+
+    ;
 
     public static void main(String[] args) throws Exception {
         Callable task1 = new MyCallable();

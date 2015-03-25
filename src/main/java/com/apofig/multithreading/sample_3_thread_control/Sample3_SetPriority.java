@@ -1,9 +1,5 @@
 package com.apofig.multithreading.sample_3_thread_control;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-
 public class Sample3_SetPriority {
 
     private static void someLogic(int b) {
