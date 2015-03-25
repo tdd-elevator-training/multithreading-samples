@@ -25,8 +25,6 @@ public class Sample8_InterruptIsInterrupted {
         }
     }
 
-    ;
-
     public static void main(String[] args) throws InterruptedException {
         Thread thread1 = new Thread(new MyRunnable("Thread1"));
         Thread thread2 = new Thread(new MyRunnable("Thread2"));

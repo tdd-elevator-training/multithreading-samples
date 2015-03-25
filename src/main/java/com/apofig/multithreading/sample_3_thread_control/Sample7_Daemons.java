@@ -27,8 +27,6 @@ public class Sample7_Daemons {
         }
     }
 
-    ;
-
     public static void main(String[] args) throws InterruptedException {
         Thread daemon1 = new Thread(new MyRunnable("Daemon1", 100));
         Thread daemon2 = new Thread(new MyRunnable("Daemon2", 100));
