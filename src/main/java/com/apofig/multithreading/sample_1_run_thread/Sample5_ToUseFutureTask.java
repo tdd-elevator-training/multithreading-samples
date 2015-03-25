@@ -40,8 +40,6 @@ public class Sample5_ToUseFutureTask {
         }
     }
 
-    ;
-
     public static void main(String[] args) throws Exception {
         FutureTask task1 = new FutureTask(new MyCallable());
         FutureTask task2 = new FutureTask(new MyRunnable(), null);

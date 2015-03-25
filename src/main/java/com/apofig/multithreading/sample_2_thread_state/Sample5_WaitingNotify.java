@@ -16,8 +16,7 @@ public class Sample5_WaitingNotify {
                     synchronized (monitor) {
                         try {
                             monitor.wait();
-                            System.out.println("dsds2");
-                            System.out.println("dsds2");
+                            System.out.println("After wait");
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -37,8 +36,7 @@ public class Sample5_WaitingNotify {
 
                     synchronized (monitor) {
                         monitor.notify();
-                        System.out.println("dsds");
-                        System.out.println("dsds");
+                        System.out.println("After notify");
                     }
 
                     try {

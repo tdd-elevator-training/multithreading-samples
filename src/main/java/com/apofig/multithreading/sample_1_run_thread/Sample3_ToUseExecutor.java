@@ -29,8 +29,6 @@ public class Sample3_ToUseExecutor {
         }
     }
 
-    ;
-
     public static void main(String[] args) {
         Runnable task1 = new IAmTheBest("Я круче!");
         Runnable task2 = new IAmTheBest("Нет Я!");

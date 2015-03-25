@@ -7,10 +7,11 @@ public class Sample6_WaitingNotifyWithThreeWait {
     static class MyRunnable implements Runnable {
         @Override
         public void run() {
+            long id = Thread.currentThread().getId();
             while (true) {
-                System.out.println(Thread.currentThread().getId() + ": Running<->Runnable");
+                System.out.println(id + ": Running<->Runnable");
 
-                System.out.println(Thread.currentThread().getId() + ": Waiting");
+                System.out.println(id + ": Waiting");
 
                 synchronized (monitor) {
                     try {
@@ -20,7 +21,7 @@ public class Sample6_WaitingNotifyWithThreeWait {
                     }
                 }
 
-                System.out.println(Thread.currentThread().getId() + ": Running");
+                System.out.println(id + ": Running");
             }
         }
     }

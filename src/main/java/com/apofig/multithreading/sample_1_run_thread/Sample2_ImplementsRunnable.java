@@ -26,8 +26,6 @@ public class Sample2_ImplementsRunnable {
         }
     }
 
-    ;
-
     public static void main(String[] args) {
         Runnable task1 = new IAmTheBest("Я круче!");
         Runnable task2 = new IAmTheBest("Нет Я!");
@@ -38,5 +36,4 @@ public class Sample2_ImplementsRunnable {
         thread1.start();
         thread2.start();
     }
-
 }

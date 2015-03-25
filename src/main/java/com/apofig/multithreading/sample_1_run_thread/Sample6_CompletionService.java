@@ -25,8 +25,6 @@ public class Sample6_CompletionService {
         }
     }
 
-    ;
-
     public static void main(String[] args) throws Exception {
         Callable task1 = new MyCallable();
         Callable task2 = new MyCallable();

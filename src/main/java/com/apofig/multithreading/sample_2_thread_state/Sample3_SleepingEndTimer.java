@@ -13,11 +13,11 @@ public class Sample3_SleepingEndTimer {
 
                     try {
                         System.out.println("Before sleep");
-                        long time = Calendar.getInstance().getTimeInMillis();
+                        long time = now();
 
                         Thread.sleep(1000);
 
-                        System.out.println("After sleep: " + (Calendar.getInstance().getTimeInMillis() - time) + "ms");
+                        System.out.println("After sleep: " + (now() - time) + "ms");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -28,6 +28,10 @@ public class Sample3_SleepingEndTimer {
         thread.start();
 
         thread.interrupt();
+    }
+
+    private static long now() {
+        return Calendar.getInstance().getTimeInMillis();
     }
 
 }

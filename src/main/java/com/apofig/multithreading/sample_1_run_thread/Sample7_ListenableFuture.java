@@ -29,8 +29,6 @@ public class Sample7_ListenableFuture {
         }
     }
 
-    ;
-
     public static interface ListenerService extends ExecutorService {
         void onComplete(Completable completable);
     }

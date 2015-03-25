@@ -34,8 +34,6 @@ public class Sample4_ToUseExecutorWithCallable {
         }
     }
 
-    ;
-
     public static void main(String[] args) throws Exception {
         Callable task1 = new IAmTheBest("Я круче!");
         Callable task2 = new IAmTheBest("Нет Я!");
