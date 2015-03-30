@@ -31,7 +31,6 @@ public class Sample7_WaitingNotifyAll {
     }
 
     public static void main(String[] args) {
-
         Thread main1 = new Thread(new MyRunnable());
         Thread main2 = new Thread(new MyRunnable());
         Thread main3 = new Thread(new MyRunnable());
@@ -42,8 +41,7 @@ public class Sample7_WaitingNotifyAll {
                 while (true) {
                     synchronized (monitor) {
                         ready = true;
-                        print("ready = true");
-                        print("Try to notify all...");
+                        print("Ready = true. Try to notify all...");
                         monitor.notifyAll();
                         print("After notify ");
                     }
@@ -59,7 +57,7 @@ public class Sample7_WaitingNotifyAll {
                 while (true) {
                     synchronized (monitor) {
                         ready = false;
-                        print("ready = false");
+                        print("Ready = false");
                     }
 
                     sleep(3000);

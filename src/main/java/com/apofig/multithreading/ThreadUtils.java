@@ -4,9 +4,18 @@ import java.util.Random;
 
 public class ThreadUtils {
 
-    public static void print(String message) {
+    private static String printed;
+
+    public static synchronized void print(String message) {
         long id = Thread.currentThread().getId();
         System.out.println(id + ": " + message);
+        printed = message;
+    }
+
+    public static synchronized void printUniq(String message) {
+        if (!message.equals(printed)) {
+            print(message);
+        }
     }
 
     public static void sleepRandom(int mills) {

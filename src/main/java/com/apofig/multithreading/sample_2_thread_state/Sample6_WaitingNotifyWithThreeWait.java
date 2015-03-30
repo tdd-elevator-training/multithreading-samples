@@ -29,7 +29,6 @@ public class Sample6_WaitingNotifyWithThreeWait {
     }
 
     public static void main(String[] args) {
-
         Thread main1 = new Thread(new MyRunnable());
         Thread main2 = new Thread(new MyRunnable());
         Thread main3 = new Thread(new MyRunnable());
